@@ -25,5 +25,11 @@ public class Example7 {
             } else {
                 return ("두 수는 같음");
             }
+//            public static int getMax9(int num1, int num2){
+//                if(num1 >= num2);
+//                return num1;
+//            }else {
+//                return num2;
+            }
         }
-}
+
