@@ -13,7 +13,7 @@
     public static int findVowelCount(char a, char b) {
         int count = 0;
         for (int i = a; i <= b; i++) {
-            if() {
+            if(i == ('A'&'E'&'I'&'O'&'U'&'a'&'e'&'i'&'o'&'u')) {
                 count = count + 1;
             }
         }
