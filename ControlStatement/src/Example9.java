@@ -9,7 +9,8 @@ public class Example9{
         Scanner scanner = new Scanner(System.in);
         System.out.println("숫자를 입력해주세요.");
         int square = scanner.nextInt();
-        return square * square;
+        scanner.close(); // scanner는 항상 닫아줘야 한다.
+        return square * square; // return 마지막 예외도 있음
     }
 }
 

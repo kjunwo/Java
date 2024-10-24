@@ -10,9 +10,8 @@ public class Example10 {
 
     public static int sumNumbers(int a, int b) {
         int sum = 0;
-        for(int i = a; i <= b; i++){
-            sum=sum+i;
-            //System.out.println();
+        for(int i=a; i<=b; i++){
+            sum = sum + i;
         }
         return sum;
     }
