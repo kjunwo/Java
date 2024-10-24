@@ -13,10 +13,24 @@ public class Example12 {
     public static String findNumber(int a, int b, int c) {
         for (int i = a; i <= b; i++) {
             if (i == c) {
-                return String.valueOf(i);
+                return ""+c;
+                // return Integer.toString(c)
             }
         }
         return "없음";
+
+//    public static String findNumber(int a, int b, int c) {
+//        boolean found = false;
+//        for (int i =a; i<=b; i++) {
+//            if (i==c) {
+//                found = true;
+//                break;
+//            }
+//        }
+//        if(found){
+//            return ""+c;
+//        }else {
+//            return "없음";
+//        }
     }
 }
-
