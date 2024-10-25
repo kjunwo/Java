@@ -41,7 +41,7 @@
 //               }
 //           }
 //           return count;
-//       }
+
        public static int findVowelCount(char a, char b){
            char[] chars = {'A','E','I','O','U','a','e','i','o','u'};
            int count = 0;
@@ -54,4 +54,5 @@
            }
            return count;
        }
-   }
+       }
+
