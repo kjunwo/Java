@@ -22,37 +22,37 @@
 //        }
 //        return count;
 //    }
-//       public static int findVowelCount(char a, char b) {
-//           int count = 0;
-//           for (int i = (int) a; i <= (int) b; i++) {
-//               switch (i) {
-//                   case 'A':
-//                   case 'E':
-//                   case 'I':
-//                   case 'O':
-//                   case 'U':
-//                   case 'a':
-//                   case 'e':
-//                   case 'i':
-//                   case 'o':
-//                   case 'u':
-//                       count = count + 1;
-//                       break;
-//               }
-//           }
-//           return count;
-
-       public static int findVowelCount(char a, char b){
-           char[] chars = {'A','E','I','O','U','a','e','i','o','u'};
+       public static int findVowelCount(char a, char b) {
            int count = 0;
-           for(int i=(int)a; i<=(int)b; i++) {
-               for (int j=0; j< chars.length; j++){
-                   if(i== chars[j]){
-                       count= count + 1;
-                   }
+           for (int i = (int) a; i <= (int) b; i++) {
+               switch (i) {
+                   case 'A':
+                   case 'E':
+                   case 'I':
+                   case 'O':
+                   case 'U':
+                   case 'a':
+                   case 'e':
+                   case 'i':
+                   case 'o':
+                   case 'u':
+                       count = count + 1;
+                       break;
                }
            }
            return count;
-       }
+
+//       public static int findVowelCount(char a, char b){
+//           char[] chars = {'A','E','I','O','U','a','e','i','o','u'};
+//           int count = 0;
+//           for(int i=(int)a; i<=(int)b; i++) {
+//               for (int j=0; j< chars.length; j++){
+//                   if(i== chars[j]){
+//                       count= count + 1;
+//                   }
+//               }
+//           }
+//           return count;
+//       }
        }
 
