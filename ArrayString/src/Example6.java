@@ -8,11 +8,18 @@ public class Example6 {
     }
 
     public static int getMax(int[] numbers) {
-        int max = numbers[0];
-        for (int i = 1; i < numbers.length; i++) {
-           if (numbers[i] > max)
-            max = numbers[i];
+//        int max = numbers[0];
+//        for (int i = 1; i < numbers.length; i++) {
+//           if (numbers[i] > max)
+//            max = numbers[i];
+//            }
+//        return max;
+        int max = 0; // max 최대값을 저장하는것
+        for (int i = 0; i < numbers.length; i++) {
+            if (max < numbers[i]) {
+                max = numbers[i];
             }
-        return max;
         }
+        return max;
     }
+}
