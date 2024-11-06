@@ -17,17 +17,14 @@ class Student {
     private int grade;
     private double[] scores; // 점수의 배열 {국어, 영어, 수학}
 
-
     public Student() {
         this.scores = new double[3]; // 국,영,수 3개의 데이터를 가지는 배열을 생성(=인스턴스화)
-
     }
     public Student(String studentId, String name, int grade) {
         this.studentId = studentId;
         this.name = name;
         this.grade = grade;
         this.scores = new double[3];
-
     }
 
     public String getStudentId() {
