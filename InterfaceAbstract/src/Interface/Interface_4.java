@@ -1,4 +1,4 @@
-package Abstract;
+package Interface;
 
 // 인터페이스의 객체 생성 #2. 익명이너클래스를 이용한 객체 생성
 interface C1 {
