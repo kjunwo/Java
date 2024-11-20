@@ -2,6 +2,7 @@ package List;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 // ArrayList의 사용법 (메서드사용법)
@@ -78,10 +79,28 @@ public class List_3 {
         // Object의 약한(느슨한) 타입체크로 인해 정상동작을 담보할 수 없음
         // Integer[] integers = (Integer[]) aList3.toArray(); // 권장 X
         System.out.println(Arrays.toString(objects)); // [1, 2, 3]
-        // 그럼 어떻게 타입변환해야 안전한가?
+        // #13.그럼 어떻게 타입변환해야 안전한가?
         Integer[] integers = aList3.toArray(new Integer[0]);
         // new Integer[0]는 0의 length를 가진 배열을 만드는게 아니라
         // aList.size()와 같은 배열크기로 만들라는 약속!!
         System.out.println(Arrays.toString(integers)); // [1, 2, 3]
+
+        // #14. contains 탐색
+        boolean exist = aList3.contains(Integer.valueOf(3));
+        if(exist) {
+            System.out.println("리스트에서 탐색 성공");
+        }else {
+            System.out.println("리스트에서 탐색 실패");
+        }
+        // #15. iterator 컬렉션 요소를 순차적으로 탐색
+        Iterator<Integer> iterator = aList3.iterator(); // 탐색자 iterator
+        // 탐색자가 다음 요소가 존재하면 true리턴, 끝에 도달했으면 false리턴
+        // 자동으로 탐색자가 끝을 알려주기때문에, while문에서 안전함
+        while (iterator.hasNext()) {
+            Integer a = iterator.next();
+            // 현재 탐색자가 위치한 요소를 리턴하고 자동으로 다음으로 넘어감
+            // 그래서 while반복문내에 iterator의 증가코드가 필요없음
+            System.out.println(a);
+        }
     }
 }
