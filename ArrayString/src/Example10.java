@@ -8,7 +8,7 @@ public class Example10 {
                 {30, 30, 30, 30, 30}
         };
         calculate2DArray(arr);
-
+    }
 
     public static void calculate2DArray(int[][] arr) {
         int total = 0;
