@@ -71,7 +71,12 @@ from 고객
 group by 담당자직위, 도시
 with rollup; 
 
-
+-- group_concat 컬럼의 값을 결합해서 표시
+-- 도시별로 고객회사명 출력
+select 도시, group_concat(고객회사명 order by 고객회사명) as 고객회사명목록 
+from 고객
+group by 도시
+order by 도시;
 
 
 
