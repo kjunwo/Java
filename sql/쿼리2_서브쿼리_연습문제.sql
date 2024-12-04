@@ -34,10 +34,21 @@ select 제품명, (
 from 제품;
 
 -- 7. 제품테이블에 있는 제품 중 단가(주문세부 테이블)가 가장 높은 제품명
-select 제품명
+select 제품명, 단가
 from 제품
-where 
+where 단가 = (select max(단가) from 제품);
+
+select 제품명, 단가
+from 제품 
+inner join 주문세부
+on 제품.제품번호 = 주문세부.제품번호
+where max(단가); 
+
+
 -- 8. 제품테이블에 있는 제품단가가 가장 높은 제품의 주문수량합
+select 제품단가
+	(select max(단가) from 주문세부 where 제품.제품번호 = 주문세부.제품번호) as 주문수량합
+	from 제품;
 
 -- 9. '아이스크림'제품의 주문수량합
 
