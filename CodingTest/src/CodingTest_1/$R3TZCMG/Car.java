@@ -1,7 +1,7 @@
 package CodingTest_1.$R3TZCMG;
 
  public class Car extends Vehicle {
-     int seatingCapacity;
+     private int seatingCapacity;
 
      public Car (String modelName, int maxSpeed, int seatingCapacity){
          super(modelName,maxSpeed);
@@ -9,10 +9,10 @@ package CodingTest_1.$R3TZCMG;
      }
 
      @Override
-     void drive() {
+     public void drive() {
          System.out.println("도로에서 운전 중입니다.");
      }
-     void airConditioning () {
+     public void airConditioning () {
          System.out.println("에어컨이 작동합니다.");
      }
  }
