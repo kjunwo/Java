@@ -1,4 +1,4 @@
-package CodingTest_1;
+package CodingTest_1.$R3TZCMG;
 
 abstract class Vehicle {
     String modelName;
