@@ -14,7 +14,7 @@ public class EBook extends Book{
 
     @Override
     void displayDetails() {
-        "Ebbok" + "-" + "title : " + title "author : " + author +
+        "Ebbok" + "-" + "title : " + title +  "author : " + author +
                 "fileSize : " + fileSize + "accessCount : " + accessCount;
     }
 }
