@@ -50,10 +50,10 @@ select 고객회사명, (
 ) as 주문수
 from 고객;
 
-select 고객.고객회사명, count(*) as 주문수 
-from 고객 join 주문
+select 고객.고객회사명, count(주문.주문번호) as 주문수 
+from 고객 left join 주문
 on 고객.고객번호 = 주문.고객번호
-group by 고객회사명
+group by 고객.고객회사명
 order by 주문수 desc;
 
 -- 6. 제품명, 제품별 총주문수량을 조회
@@ -62,16 +62,18 @@ select 제품명, (
 ) as 총주문수량 
 from 제품;
 
-select 제품.제품명, sum(주문수량) as 총주문수량
-from 제품 join 주문세부
+select 제품.제품명, sum(주문세부.주문수량) as 총주문수량
+from 제품 left join 주문세부
 on 주문세부.제품번호 = 제품.제품번호
-group by 제품명
+group by 제품.제품번호,제품.제품명
 order by 총주문수량 desc;
 
 -- 7. 제품테이블에 있는 제품 중 단가(주문세부 테이블)가 가장 높은 제품명
-select 제품명, 단가
+select 제품명, (select max(단가) from 주문세부) as 최고단가
 from 제품
-where 단가 = (select max(단가) from 제품);
+where 제품.제품번호 in 
+	(select 제품번호 from 주문세부 where 단가 = 
+		(select max(단가)from 주문세부));
 
 select 제품명, max(주문세부.단가) as 최고단가
 from 제품 join 주문세부
