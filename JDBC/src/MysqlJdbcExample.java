@@ -164,9 +164,9 @@ public class MysqlJdbcExample {
 //        for (Customer customer : customers) {
 //            System.out.println(customer);
 //        }
-//        repository.getEmployees_1();
-//        repository.getEmployees_2();
-          repository.getCustomersNotOrder();
-          repository.getCustomersNotOrder_2();
+//          repository.getEmployees_1();
+//          repository.getEmployees_2();
+//          repository.getCustomersNotOrder();
+//          repository.getCustomersNotOrder_2();
     }
 }
