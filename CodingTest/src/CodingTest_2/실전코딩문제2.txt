@@ -1,0 +1,86 @@
+<클래스 요구사항>
+
+1. 추상 클래스 Book
+필드:
+title (String): 책 제목
+author (String): 저자
+생성자:
+Book(String title, String author)
+메서드:
+String getTitle(): 책 제목 반환
+String getAuthor(): 저자 반환
+abstract void displayDetails(): 책 정보를 출력하는 추상 메서드
+
+
+2. 클래스 PrintedBook (Book 상속)
+필드:
+pageCount (int): 책 페이지 수
+isLent (boolean): 대출 여부(대출상태면 true)
+생성자:
+public PrintedBook(String title, String author, int pageCount)
+메서드:
+boolean isLent(): 대출 여부 반환
+void lend(): 이미 대출 중인 경우 "[제목] 은 이미 대출중입니다." 출력
+	     대출 가능하면 대출여부를 수정하고 "[제목] 은 성공적으로 대출 처리되었습니다." 출력
+void returnBook(): 이미 반납된 경우 "[제목] 은 대출중이 아닙니다." 출력
+		   반납이 가능하면 대출여부 수정하고 "[제목] 은 성공적으로 반납되었습니다." 출력
+@Override void displayDetails(): 책 정보를 다음 형식으로 출력:
+"Printed Book - 제목: [제목], 저자: [저자], 페이지: [페이지 수], 대출여부: [대출 여부]
+
+
+3. 클래스 EBook (Book 상속)
+필드:
+fileSize (double): 파일 크기 (MB)
+accessCount (int): 조회 횟수
+생성자:
+public EBook(String title, String author, double fileSize)
+메서드:
+void access(): 조회 처리. 호출 시 조회 횟수를 1 증가시키고 메시지 출력 "[제목] 조회 횟수: [조회 횟수]"
+@Override void displayDetails(): 책 정보를 다음 형식으로 출력:
+"EBook - 제목: [제목], 저자: [저자], 파일 사이즈: [파일 크기]MB, 조회 횟수: [조회 횟수]
+
+
+4. 클래스 Library
+필드:
+name (String): 도서관 이름
+books (List<Book>): 도서 목록
+생성자:
+public Library(String name)
+메서드:
+void addBook(Book book): 책을 도서 목록에 추가하고 메시지 출력 "책 등록: [제목]"
+void displayBooks(): 도서 목록을 출력. 각 책의 displayDetails() 메서드 호출
+void lendBook(String title): 
+	PrintedBook인 경우: lend() 호출
+	EBook인 경우: access() 호출
+void returnBook(String title): 
+	PrintedBook인 경우만 returnBook() 호출
+	
+	
+### 출력 결과 ###
+책 등록: 1984
+책 등록: Digital Minimalism
+책 등록: The Great Gatsby
+
+도서관: Central Library
+Printed Book - 제목: 1984, 저자: George Orwell, 페이지: 328, 대출여부: false
+EBook - 제목: Digital Minimalism, 저자: Cal Newport, 파일 사이즈: 1.5MB, 조회 횟수: 0
+Printed Book - 제목: The Great Gatsby, 저자: F. Scott Fitzgerald, 페이지: 180, 대출여부: false
+
+1984 은 성공적으로 대출 처리되었습니다.
+Digital Minimalism 조회 횟수: 1
+Digital Minimalism 조회 횟수: 2
+The Great Gatsby 은 성공적으로 대출 처리되었습니다.
+The Great Gatsby 은 이미 대출중입니다.
+
+도서관: Central Library
+Printed Book - 제목: 1984, 저자: George Orwell, 페이지: 328, 대출여부: true
+EBook - 제목: Digital Minimalism, 저자: Cal Newport, 파일 사이즈: 1.5MB, 조회 횟수: 2
+Printed Book - 제목: The Great Gatsby, 저자: F. Scott Fitzgerald, 페이지: 180, 대출여부: true
+
+1984 은 성공적으로 반납되었습니다.
+The Great Gatsby 은 성공적으로 반납되었습니다.
+
+도서관: Central Library
+Printed Book - 제목: 1984, 저자: George Orwell, 페이지: 328, 대출여부: false
+EBook - 제목: Digital Minimalism, 저자: Cal Newport, 파일 사이즈: 1.5MB, 조회 횟수: 2
+Printed Book - 제목: The Great Gatsby, 저자: F. Scott Fitzgerald, 페이지: 180, 대출여부: false
